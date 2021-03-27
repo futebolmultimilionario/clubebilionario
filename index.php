@@ -36,7 +36,7 @@
 		if (($h = fopen("idmsg.csv", "r")) !== FALSE){
 			// Convert each line into the local $data variable
 			$i=0;
-			if(!array_key_exists('sticker', $requisicao['channel_post']) && !array_key_exists('video', $requisicao['channel_post']) && !array_key_exists('poll', $requisicao['channel_post'])){
+			if(!array_key_exists('sticker', $requisicao['edited_channel_post']) && !array_key_exists('video', $requisicao['edited_channel_post']) && !array_key_exists('poll', $requisicao['edited_channel_post'])){
 			while (($data = fgetcsv($h, 1000, ",")) !== FALSE){
 				$teste[]=$data;
 				if($teste[$i][0] == $msgid){
