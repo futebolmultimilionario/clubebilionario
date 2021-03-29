@@ -8,7 +8,7 @@
 	$requisicao = json_decode($dados, TRUE);
 
 	$botToken = "1698766079:AAFM5MWB11wDVhiSVzulNCTDt8L6QHE_UNI";
-	$idchat2 = "-1001443215600";
+	$idchat2 = "-1001488710027";
 	$idchat = "-1001443215600";
 	$bot_url    = "https://api.telegram.org/bot".$botToken;
 
