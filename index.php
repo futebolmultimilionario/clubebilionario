@@ -8,8 +8,8 @@
 	$requisicao = json_decode($dados, TRUE);
 
 	$botToken = "1698766079:AAGaMl2PQsWJQ_lTih8KegQGMsice1o5C9Y";
-	$idchat3 = "-1001459553477";
-	$idchat2 = "-1001488710027";
+	$idchat3 = "-1001488710027";
+	$idchat2 = "-100145955347";
 	$idchat = "-1001443215600";
 	$bot_url    = "https://api.telegram.org/bot".$botToken;
 
@@ -32,10 +32,11 @@
 				$msgid_rep = $resposta['result']['message_id'];
 				$msgid_rep2 = $resposta2['result']['message_id'];
 				$msgid_rep3 = $resposta3['result']['message_id'];
+				file_put_contents("idmsg.csv",$msgid.",".$msgid_rep.",".$msgid_rep2.",".$msgid_rep3.PHP_EOL,FILE_APPEND);
 				}
 			}
 		}
-		file_put_contents("idmsg.csv",$msgid.",".$msgid_rep.",".$msgid_rep2.",".$msgid_rep3.PHP_EOL,FILE_APPEND);
+		
 	}
 
 	if(array_key_exists('edited_channel_post', $requisicao)){
