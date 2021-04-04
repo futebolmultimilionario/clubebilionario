@@ -7,7 +7,7 @@
 	file_put_contents("input.log",$input.PHP_EOL,FILE_APPEND);
 	$requisicao = json_decode($dados, TRUE);
 
-	$botToken = "1698766079:AAGaMl2PQsWJQ_lTih8KegQGMsice1o5C9Y";
+	$botToken = "1698766079:AAF0cMzXlSNsQ0UqUWKwrsqsUn7KBCte7ss";
 	$idchat3 = "-1001488710027";
 	$idchat2 = "-1001459553477";
 	$idchat = "-1001443215600";
