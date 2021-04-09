@@ -10,7 +10,7 @@
 	define('BOT_TOKEN', '1698766079:AAHaCdflzSetWbJu79S00GM2hVp7gLHaZ-Y');
 	define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
 
-	$botToken = "1698766079:AAF0cMzXlSNsQ0UqUWKwrsqsUn7KBCte7ss";
+	$botToken = "1698766079:AAGBmQgtXny8XfH_fl9KH8N8PoZux-3LWVc";
 	$idchat3 = "-1001488710027";
 	$idchat2 = "-1001459553477";
 	$idchat = "-1001443215600";
@@ -44,9 +44,9 @@
 				$url = $bot_url."/copyMessage?chat_id=".$idchat."&from_chat_id=".$chat_id."&message_id=".$msgid;
 				$url2 = $bot_url."/copyMessage?chat_id=".$idchat2."&from_chat_id=".$chat_id."&message_id=".$msgid;
 				$url3 = $bot_url."/copyMessage?chat_id=".$idchat3."&from_chat_id=".$chat_id."&message_id=".$msgid;
-				$resposta = sendMessage("copyMessage", array('chat_id' => $idchat, "from_chat_id" => $chat_id, "message_id" => $msgid));
-				$resposta2 = sendMessage("copyMessage", array('chat_id' => $idchat2, "from_chat_id" => $chat_id, "message_id" => $msgid));
-				$resposta3 = sendMessage("copyMessage", array('chat_id' => $idchat3, "from_chat_id" => $chat_id, "message_id" => $msgid));
+				$resposta = file_get_contents($url);
+				$resposta2 = file_get_contents($url2);
+				$resposta3 = file_get_contents($url3);
 				$msgid_rep = $resposta['result']['message_id'];
 				$msgid_rep2 = $resposta2['result']['message_id'];
 				$msgid_rep3 = $resposta3['result']['message_id'];
@@ -74,9 +74,9 @@
 						$url = $bot_url."/editMessageText?chat_id=".$idchat."&message_id=".$teste[$i][1]."&text=".urlencode($texto);
 						$url2 = $bot_url."/editMessageText?chat_id=".$idchat2."&message_id=".$teste[$i][2]."&text=".urlencode($texto);
 						$url3 = $bot_url."/editMessageText?chat_id=".$idchat3."&message_id=".$teste[$i][3]."&text=".urlencode($texto);
-						sendMessage("editMessageText", array('chat_id' => $idchat, "message_id" => $teste[$i][1], "text" => urlencode($texto)));
-						sendMessage("editMessageText", array('chat_id' => $idchat2, "message_id" => $teste[$i][2], "text" => urlencode($texto)));
-						sendMessage("editMessageText", array('chat_id' => $idchat3, "message_id" => $teste[$i][3], "text" => urlencode($texto)));
+						file_get_contents($url);
+						file_get_contents($url2);
+						file_get_contents($url3);
 						}
 					} else {
 						$texto = $requisicao['edited_message']['caption'];
@@ -85,9 +85,9 @@
 						$url = $bot_url."/editMessageCaption?chat_id=".$idchat."&message_id=".$teste[$i][1]."&caption=".urlencode($texto);
 						$url2 = $bot_url."/editMessageCaption?chat_id=".$idchat2."&message_id=".$teste[$i][2]."&caption=".urlencode($texto);
 						$url3 = $bot_url."/editMessageCaption?chat_id=".$idchat3."&message_id=".$teste[$i][3]."&caption=".urlencode($texto);
-						sendMessage("editMessageCaption", array('chat_id' => $idchat, "message_id" => $teste[$i][1], "caption" => urlencode($texto)));
-						sendMessage("editMessageCaption", array('chat_id' => $idchat2, "message_id" => $teste[$i][2], "caption" => urlencode($texto)));
-						sendMessage("editMessageCaption", array('chat_id' => $idchat3, "message_id" => $teste[$i][3], "caption" => urlencode($texto)));
+						file_get_contents($url);
+						file_get_contents($url2);
+						file_get_contents($url3);
 						}
 					}
 					break;
