@@ -6,6 +6,9 @@
 	ob_end_clean();
 	file_put_contents("input.log",$input.PHP_EOL,FILE_APPEND);
 	$requisicao = json_decode($dados, TRUE);
+	
+	define('BOT_TOKEN', '1698766079:AAF0cMzXlSNsQ0UqUWKwrsqsUn7KBCte7ss');
+	define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
 
 	$botToken = "1698766079:AAF0cMzXlSNsQ0UqUWKwrsqsUn7KBCte7ss";
 	$idchat3 = "-1001488710027";
