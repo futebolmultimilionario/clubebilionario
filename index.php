@@ -7,7 +7,7 @@
 	file_put_contents("input.log",$input.PHP_EOL,FILE_APPEND);
 	$requisicao = json_decode($dados, TRUE);
 	
-	define('BOT_TOKEN', '1698766079:AAF0cMzXlSNsQ0UqUWKwrsqsUn7KBCte7ss');
+	define('BOT_TOKEN', '1698766079:AAHaCdflzSetWbJu79S00GM2hVp7gLHaZ-Y');
 	define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
 
 	$botToken = "1698766079:AAF0cMzXlSNsQ0UqUWKwrsqsUn7KBCte7ss";
