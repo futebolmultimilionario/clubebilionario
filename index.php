@@ -12,7 +12,22 @@
 	$idchat2 = "-1001459553477";
 	$idchat = "-1001443215600";
 	$bot_url    = "https://api.telegram.org/bot".$botToken;
+	
+	function sendMessage($method, $parameters) {
+  	$options = array(
+  	'http' => array(
+    	'method'  => 'POST',
+    	'content' => json_encode($parameters),
+    	'header'=>  "Content-Type: application/json\r\n" .
+                    "Accept: application/json\r\n"
+    	)
+	);
 
+	$context  = stream_context_create( $options );
+	$fim = file_get_contents(API_URL.$method, false, $context );
+	return $fim;
+	}
+	
 	if(array_key_exists('message', $requisicao)){
 		if(!array_key_exists('sticker', $requisicao['message']) && !array_key_exists('video', $requisicao['message']) && !array_key_exists('poll', $requisicao['message'])){
 			if(array_key_exists('caption', $requisicao['message'])){
@@ -26,9 +41,9 @@
 				$url = $bot_url."/copyMessage?chat_id=".$idchat."&from_chat_id=".$chat_id."&message_id=".$msgid;
 				$url2 = $bot_url."/copyMessage?chat_id=".$idchat2."&from_chat_id=".$chat_id."&message_id=".$msgid;
 				$url3 = $bot_url."/copyMessage?chat_id=".$idchat3."&from_chat_id=".$chat_id."&message_id=".$msgid;
-				$resposta = json_decode(file_get_contents($url), TRUE);
-				$resposta2 = json_decode(file_get_contents($url2), TRUE);
-				$resposta3 = json_decode(file_get_contents($url3), TRUE);
+				$resposta = sendMessage("copyMessage", array('chat_id' => $idchat, "from_chat_id" => $chat_id, "message_id" => $msgid));
+				$resposta2 = sendMessage("copyMessage", array('chat_id' => $idchat2, "from_chat_id" => $chat_id, "message_id" => $msgid));
+				$resposta3 = sendMessage("copyMessage", array('chat_id' => $idchat3, "from_chat_id" => $chat_id, "message_id" => $msgid));
 				$msgid_rep = $resposta['result']['message_id'];
 				$msgid_rep2 = $resposta2['result']['message_id'];
 				$msgid_rep3 = $resposta3['result']['message_id'];
@@ -56,9 +71,9 @@
 						$url = $bot_url."/editMessageText?chat_id=".$idchat."&message_id=".$teste[$i][1]."&text=".urlencode($texto);
 						$url2 = $bot_url."/editMessageText?chat_id=".$idchat2."&message_id=".$teste[$i][2]."&text=".urlencode($texto);
 						$url3 = $bot_url."/editMessageText?chat_id=".$idchat3."&message_id=".$teste[$i][3]."&text=".urlencode($texto);
-						file_get_contents($url);
-						file_get_contents($url2);
-						file_get_contents($url3);
+						sendMessage("editMessageText", array('chat_id' => $idchat, "message_id" => $teste[$i][1], "text" => urlencode($texto)));
+						sendMessage("editMessageText", array('chat_id' => $idchat2, "message_id" => $teste[$i][2], "text" => urlencode($texto)));
+						sendMessage("editMessageText", array('chat_id' => $idchat3, "message_id" => $teste[$i][3], "text" => urlencode($texto)));
 						}
 					} else {
 						$texto = $requisicao['edited_message']['caption'];
@@ -67,9 +82,9 @@
 						$url = $bot_url."/editMessageCaption?chat_id=".$idchat."&message_id=".$teste[$i][1]."&caption=".urlencode($texto);
 						$url2 = $bot_url."/editMessageCaption?chat_id=".$idchat2."&message_id=".$teste[$i][2]."&caption=".urlencode($texto);
 						$url3 = $bot_url."/editMessageCaption?chat_id=".$idchat3."&message_id=".$teste[$i][3]."&caption=".urlencode($texto);
-						file_get_contents($url);
-						file_get_contents($url2);
-						file_get_contents($url3);
+						sendMessage("editMessageCaption", array('chat_id' => $idchat, "message_id" => $teste[$i][1], "caption" => urlencode($texto)));
+						sendMessage("editMessageCaption", array('chat_id' => $idchat2, "message_id" => $teste[$i][2], "caption" => urlencode($texto)));
+						sendMessage("editMessageCaption", array('chat_id' => $idchat3, "message_id" => $teste[$i][3], "caption" => urlencode($texto)));
 						}
 					}
 					break;
