@@ -10,7 +10,7 @@
 	define('BOT_TOKEN', '1698766079:AAHaCdflzSetWbJu79S00GM2hVp7gLHaZ-Y');
 	define('API_URL', 'https://api.telegram.org/bot'.BOT_TOKEN.'/');
 
-	$botToken = "1698766079:AAHJqW9KkPAbuIyK4VhUzmfpWQZqwutJTYA";
+	$botToken = "1698766079:AAErADV68o6u1JUubHiIfQtfz78Ce7lHT24";
 	$idchat3 = "-1001488710027";
 	$idchat2 = "-1001459553477";
 	$idchat = "-1001443215600";
